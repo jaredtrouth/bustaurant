@@ -1,5 +1,9 @@
 const { mix } = require('laravel-mix');
 
+var paths = {
+    'bootstrap': './vendor/bower_components/bootstrap-sass-official/assets/'
+}
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,5 +15,8 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.js('resources/assets/js/main.js', 'public/js')
+   .sass('resources/assets/sass/style.scss', 'public/css')
+   .copyDirectory('resources/assets/img', 'public/images');;
+
+mix.browserSync('localhost:8000');

@@ -1,0 +1,90 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+html, body {
+	height: 100%;
+}
+
+h1, h3 {
+	text-shadow: 2px 2px #000;
+}
+
+// Text stuff
+p.lead > strong > a {
+	color: #000;
+}
+
+p.lead.text-inverse > strong > a {
+	color: #fff;
+	text-shadow: 1.5px 1.5px #000;
+}
+
+// Jumbotron
+#jumbotron {
+	background: url('../img/busbg.jpg') center center no-repeat fixed;
+	display: table;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	height: 90%;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.text-vcenter {
+	display: table-cell;
+	text-align: center;
+}
+
+.text-vcenter h1 {
+	font-size: 4.5em;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+}
+
+#jumbotron h1, #jumbotron h3 {
+	color: #fff;
+}
+
+// Navigation
+
+#nav {
+  width: 100%;
+  position:static;
+  top:-32px;
+}
+
+#nav.affix {
+   position: fixed;
+   top: 0;
+   z-index:10;
+   -webkit-transition: all .6s ease-in-out;
+}
+
+.navbar-brand {
+	padding-top: 0;
+}
+
+
+// Where's the Bus?
+#find {
+	background: url('../img/1280px-Nashville_skyline_2009.jpg') center center no-repeat fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	padding: 1em 0;
+}
+
+// Footer
+.footer {
+	background-color: rgb(34, 34, 34);
+	padding: 1em 0;
+}
