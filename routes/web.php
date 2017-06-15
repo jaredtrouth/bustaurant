@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::resource('services', 'ServicesController');
+Route::resource('menuitems', 'MenuItemsController');
