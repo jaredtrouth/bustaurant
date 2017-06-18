@@ -14,5 +14,9 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/admin', 'AdminController@index');
+
 Route::resource('services', 'ServicesController');
 Route::resource('menuitems', 'MenuItemsController');
+
+Auth::routes();

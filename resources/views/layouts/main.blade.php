@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/style.css') }}">
 
+	<!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 	<title>The Bustaurant | @yield('title')</title>
 </head>
 
@@ -29,7 +32,6 @@
 					<li><a href="/find">Where's the Bus?</a></li>
 					<li><a href="/menu">Menu</a></li>
 					<li><a href="/news">News</a></li>
-					<li><a href="/contact">Follow the Bus</a></li>
 				</ul>
 			</div>
 		</div>
@@ -48,13 +50,6 @@
 		<script type="text/javascript" src="/js/manifest.js"></script>
 		<script type="text/javascript" src="/js/vendor.js"></script>
 		<script type="text/javascript" src="/js/main.js"></script>
-		<script>
-			/*Affix the navbar after scroll below header*/
-			$('#nav').affix({
-				offset: {
-					top: $('header').height()+$('#nav').height()
-				}
-			});
-		</script>
+		@yield('scripts')
 	</body>
 	</html>

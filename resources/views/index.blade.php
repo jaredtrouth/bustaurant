@@ -12,31 +12,6 @@
 </header>
 @endsection
 
-@section('navbar')
-  <nav class="navbar navbar-default navbar-static-top" id="nav" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collpse-main">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span><span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img src="/images/logo-plain.png"><span class="sr-only">The Bustaurant</span></a>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar-collapse-main">
-        <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#find">Where's the Bus?</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#news">News</a>
-          <li><a href="#contact">Follow the Bus</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  @endsection
-
 @section('content')
   <div id="about" class="container">
     <div class="section-header text-center">
@@ -69,4 +44,15 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('scripts')
+<script>
+/*Affix the navbar after scroll below header*/
+$('#nav').affix({
+  offset: {
+    top: $('.jumbotron').height()+$('#nav').height()+96
+  }
+});
+</script>
 @endsection

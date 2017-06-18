@@ -19,4 +19,4 @@ mix.js('resources/assets/js/main.js', 'public/js')
    .sass('resources/assets/sass/style.scss', 'public/css')
    .copyDirectory('resources/assets/img', 'public/images');;
 
-mix.browserSync('localhost:8000');
+mix.browserSync('bustaurant.dev');
