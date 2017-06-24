@@ -3,6 +3,10 @@
   min-height: 40vh;
 }
 
-#admin-content {
-  padding-bottom: 25px;
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
 }

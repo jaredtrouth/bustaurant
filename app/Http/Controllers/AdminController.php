@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Service;
+use App\MenuItem;
 
 class AdminController extends Controller
 {
@@ -13,6 +15,8 @@ class AdminController extends Controller
 
   public function index()
   {
-    return view('admin.index');
+    $services = Service::where('end_datetime', '>=', new \DateTime())->get();
+    $menuitems = MenuItem::all();
+    return view('admin.index', compact(['services', 'menuitems']));
   }
 }
