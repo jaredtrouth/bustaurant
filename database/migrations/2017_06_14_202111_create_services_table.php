@@ -15,8 +15,9 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
-            $table->datetime('start_datetime');
-            $table->datetime('end_datetime');
+            $table->date('date');
+            $table->time('starttime');
+            $table->time('endtime');
             $table->decimal('loc_lat', 9, 6);
             $table->decimal('loc_long', 9, 6);
             $table->string('loc_name');

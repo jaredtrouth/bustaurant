@@ -8,8 +8,18 @@ class Service extends Model
 {
   protected $dates = [
     'created_at',
-    'updates_at',
-    'start_datetime',
-    'end_datetime'
+    'updated_at',
+    'date',
+    'starttime',
+    'endtime'
   ];
+
+  protected $fillable = [
+    'start_datetime',
+    'end_datetime',
+    'loc_name',
+    'loc_lat',
+    'loc_long'
+  ];
+  
 }

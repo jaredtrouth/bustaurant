@@ -22,10 +22,16 @@ class ServicesController extends Controller
   // Store
   function store() {
     $this->validate($request, [
-      'start_datetime' => 'required|date'
-      'end_datetime' => 'required|date'
-      'loc_name' => 'required|string'
-    ])
+      'date'      => 'required|date',
+      'startime'  => 'required|date',
+      'endtime'   => 'required|date',
+      'loc_name'  => 'required|string'
+    ]);
+
+    Service::create(['date', 'starttime', 'endtime', 'loc_name', 'loc_lat', 'loc_long']);
+
+    return redirect('/admin');
+
   }
 
   // Show

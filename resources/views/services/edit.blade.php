@@ -1,13 +1,14 @@
 @extends('layouts.main')
 
 @section('title')
-Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
+Edit Service - {{ $service->date->format('m/d/Y')}} @ {{ $service->loc_name }}
 @endsection
 
 @section('content')
 <div class="container">
   <div class="col-md-4">
-    <form action="" method="POST" role="form">
+    <form action="/services" method="POST" role="form">
+      {{ csrf_field() }}
       <legend>Add Meal Service</legend>
 
       <div class="form-group">
@@ -23,7 +24,7 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
         <label for="date">Date</label>
         <div class="input-group">
           <input type="text" class="datepicker form-control" id="date" placeholder="MM/DD/YY"
-          value="{{$service->start_datetime->format('m/d/Y')}}">
+          value="{{$service->date->format('m/d/Y')}}">
           <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
         </div>
       </div>
@@ -32,7 +33,7 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
         <label for="starttime">Start Time</label>
         <div class="input-group">
           <input type="text" id="starttime" class="form-control" placeholder="HH:MM AM/PM"
-          value="{{ $service->start_datetime->format('g:i A') }}">
+          value="{{ $service->starttime->format('g:i A') }}">
           <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
         </div>
       </div>
@@ -41,7 +42,7 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
         <label for="endtime">End Time</label>
         <div class="input-group">
           <input type="text" id="endtime" class="form-control" placeholder="HH:MM AM/PM"
-          value="{{ $service->end_datetime->format('g:i A') }}">
+          value="{{ $service->endtime->format('g:i A') }}">
           <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
         </div>
       </div>
@@ -51,6 +52,7 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
       <button type="cancel" class="btn btn-danger">Cancel</button>
     </form>
   </div>
+
   <div class="col-md-8" id="mapContainer">
     <legend>Map</legend>
     <div id="map" class="img-responsive"></div>
