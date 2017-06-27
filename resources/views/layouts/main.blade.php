@@ -5,6 +5,7 @@
 	<meta name="author" content="Jared Trouth">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

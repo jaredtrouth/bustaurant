@@ -7,7 +7,7 @@ use App\Service;
 
 class ServicesController extends Controller
 {
-  
+
   // Index
   function index() {
     $services = Service::all();
@@ -21,7 +21,11 @@ class ServicesController extends Controller
 
   // Store
   function store() {
-
+    $this->validate($request, [
+      'start_datetime' => 'required|date'
+      'end_datetime' => 'required|date'
+      'loc_name' => 'required|string'
+    ])
   }
 
   // Show
@@ -34,7 +38,7 @@ class ServicesController extends Controller
     return view('services.edit', compact('service'));
   }
 
-  // Update 
+  // Update
   function update(Service $service) {
     return view('services.update', compact('service'));
   }

@@ -15,14 +15,14 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
         <div class="input-group">
           <input type="text" id="locname" class="form-control" value="{{ $service->loc_name }}">
           <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-          
+
         </div>
       </div>
 
       <div class="form-group">
         <label for="date">Date</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="date" placeholder="MM/DD/YY"
+          <input type="text" class="datepicker form-control" id="date" placeholder="MM/DD/YY"
           value="{{$service->start_datetime->format('m/d/Y')}}">
           <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
         </div>
@@ -31,7 +31,7 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
       <div class="form-group">
         <label for="starttime">Start Time</label>
         <div class="input-group">
-          <input type="text" id="starttime" class="form-control" placeholder="HH:MM AM/PM" 
+          <input type="text" id="starttime" class="form-control" placeholder="HH:MM AM/PM"
           value="{{ $service->start_datetime->format('g:i A') }}">
           <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
         </div>
@@ -56,9 +56,8 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
     <div id="map" class="img-responsive"></div>
     <div id="infowindow-content">
       <img src="" width="16" height="16" id="place-icon">&nbsp;
-      <span id="place-name"  class="title"></span>
+      <span id="place-name"  class="title text-center"></span>
       <p id="place-address"></p>
-      <p id="place-times"></p>
     </div>
   </div>
 </div>
@@ -66,6 +65,17 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
 
 @section('scripts')
 <script type="text/javascript">
+  $( function() {
+    $( '.datepicker' ).datepicker({
+      minDate: 0,
+      changeMonth: true,
+      changeYear: true,
+      showOtherMonths: true,
+      selectOtherMonths: true,
+      showButtonPanel: true
+    });
+  } );
+
   function initMap() {
     resizeBootstrapMap();
 
@@ -80,7 +90,11 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
       map: map,
     });
 
-    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('locname'));
+    var bounds = new google.maps.Circle({ // Weights the search area to results within the circle
+      center: new google.maps.LatLng(36.158598, -86.775676), // Nashville
+      radius: 40000 // ~25 miles
+    });
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('locname'), bounds);
     var infowindow = new google.maps.InfoWindow();
     var infowindowContent = document.getElementById('infowindow-content');
     infowindow.setContent(infowindowContent);
@@ -103,23 +117,26 @@ Edit Service - {{ $service->start_datetime->format('m/d/Y @ g:i A')}}
       map.setCenter(place.geometry.location);
       map.setZoom(17);  // Why 17? Because it looks good.
     }
-    marker.setVisible(true);
     marker.setPosition(place.geometry.location);
+    marker.setVisible(true);
 
-    var address = '';
+    console.log(place.address_components);
+
+    var address = {};
     if (place.address_components) {
-      address = [
-      (place.address_components[0] && place.address_components[0].short_name || ''),
-      (place.address_components[1] && place.address_components[1].short_name || ''),
-      (place.address_components[2] && place.address_components[2].short_name || '')
-      ].join(' ');
+      var components = place.address_components;
+      for (var i = 0, component; component = components[i]; i++) {
+        address[component.types[0]] = component.short_name;
+      }
     }
 
     infowindowContent.children['place-icon'].src = place.icon;
-    infowindowContent.children['place-name'].textContent = place.name;
-    infowindowContent.children['place-address'].textContent = address;
-    infowindowContent.children['place-times'].textContent = "{{ $service->start_datetime->format('m/d/Y g:i A')}} - {{ $service->end_datetime->format('g:i A') }}";
+    infowindowContent.children['place-name'].innerHTML = place.name;
+    infowindowContent.children['place-address'].innerHTML =
+      address.street_number + " " + address.route + '<br>' + address.locality +
+      ", " + address.administrative_area_level_1 + " " + address.postal_code;
     infowindow.open(map, marker);
+    infowindowContent.style.display = 'block'
     });
   }
 

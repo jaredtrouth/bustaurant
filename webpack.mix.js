@@ -1,7 +1,8 @@
 const { mix } = require('laravel-mix');
 
 var paths = {
-    'bootstrap': './vendor/bower_components/bootstrap-sass-official/assets/'
+    'bootstrap': './vendor/bower_components/bootstrap-sass-official/assets/',
+    'jquery-ui': 'node_modules/jquery-ui-bundle/'
 }
 
 /*
@@ -17,6 +18,7 @@ var paths = {
 
 mix.js('resources/assets/js/main.js', 'public/js')
    .sass('resources/assets/sass/style.scss', 'public/css')
+   .styles('node_modules/jquery-ui-bundle/jquery-ui.css', 'public/css/jquery-ui.css')
    .copyDirectory('resources/assets/img', 'public/images');;
 
 mix.browserSync('bustaurant.dev');
