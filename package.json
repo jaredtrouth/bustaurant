@@ -14,13 +14,13 @@
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^3.2.3",
     "laravel-mix": "0.*",
-    "lodash": "^4.17.4",
-    "vue": "^2.1.10"
+    "lodash": "^4.17.4"
   },
   "dependencies": {
+    "brace-expansion": "^1.1.8",
     "glob": "^7.1.2",
     "jquery": "^3.2.1",
-    "jquery-ui": "^1.12.1",
-    "jquery-ui-bundle": "^1.12.1"
+    "jquery-ui-bundle": "^1.12.1",
+    "once": "^1.4.0"
   }
 }
