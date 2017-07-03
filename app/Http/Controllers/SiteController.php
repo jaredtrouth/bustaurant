@@ -10,7 +10,8 @@ class SiteController extends Controller
 {
     function index()
     {
-      $nextservice = Service::where('date', '>=', Carbon::now())->orderBy('date')->first();
-      return view('index', compact('nextservice'));
+      $nextservice = Service::where('endtime', '>=', Carbon::now())->oldest('endtime')->first();
+      $upcomingservices = Service::where('starttime', '>=', Carbon::now())->oldest('starttime')->limit(5)->get();
+      return view('index', compact(['nextservice', 'upcomingservices']));
     }
 }

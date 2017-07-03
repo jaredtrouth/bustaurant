@@ -39,7 +39,7 @@
       <div class="col-md-4 col-md-offset-2 panel panel-default">
         <div class="panel-heading">Upcoming Services</div>
         <div class="panel-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum nisi error aut quod libero. Sunt assumenda pariatur obcaecati, saepe accusantium atque quia iste odit porro, repudiandae ipsam ratione incidunt. Odio.
+          @include('services.partials.upcoming')
         </div>
       </div>
     </div>
