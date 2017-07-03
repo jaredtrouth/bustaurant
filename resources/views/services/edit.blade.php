@@ -138,7 +138,7 @@ Edit Service - {{ $service->date->format('m/d/Y')}} @ {{ $service->loc_name }}
       address.street_number + " " + address.route + '<br>' + address.locality +
       ", " + address.administrative_area_level_1 + " " + address.postal_code;
     infowindow.open(map, marker);
-    infowindowContent.style.display = 'block'
+    infowindowContent.style.display = 'block';
     });
   }
 

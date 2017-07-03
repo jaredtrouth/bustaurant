@@ -12,6 +12,11 @@
 <div class="row">
 
   <div id="map" class="img-responsive"></div>
+  <div id="infowindow-content">
+    <span id="place-name"  class="title text-center">{{ $nextservice->loc_name}}</span><br />
+    <span id="place-address" class="text-center"></span>
+    <p id="service-times">{{ $nextservice->starttime->format('g:i A')}} - {{ $nextservice->endtime->format('g:i A')}}</p>
+  </div>
 
 </div>
 
@@ -20,6 +25,10 @@
       function initMap() {
         var location = { lat: {{ $nextservice->loc_lat }}, lng: {{ $nextservice->loc_long }} };
         var name = "{!! $nextservice->loc_name !!}";
+        var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        infowindow.setContent(infowindowContent);
+
         var map = new google.maps.Map(document.getElementById('map'), {
           center: location,
           zoom: 15
@@ -30,6 +39,10 @@
           map: map,
           title: name
         });
+
+        infowindow.open(map, marker);
+        infowindowContent.style.display = 'block';
+
       }
   </script>
   <script async defer
