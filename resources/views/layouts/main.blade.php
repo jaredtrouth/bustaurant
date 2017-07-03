@@ -48,8 +48,6 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ad blanditiis delectus, possimus voluptatibus veritatis sapiente, sit iusto saepe deleniti expedita! Molestiae minus cupiditate veniam ad alias veritatis nulla consectetur.
 			</div>
 		</footer>
-		<script type="text/javascript" src="/js/manifest.js"></script>
-		<script type="text/javascript" src="/js/vendor.js"></script>
 		<script type="text/javascript" src="/js/main.js"></script>
 		@yield('scripts')
 	</body>
