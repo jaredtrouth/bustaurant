@@ -33,7 +33,7 @@
       <div class="col-md-6 panel panel-default">
         <div class="panel-heading">Next Service</div>
         <div class="panel-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis aperiam excepturi animi obcaecati error perferendis aut explicabo adipisci autem praesentium nostrum, voluptatum iure voluptatem officiis sequi suscipit. Illum, doloribus, voluptates.
+          @include('services.partials.next')
         </div>
       </div>
       <div class="col-md-4 col-md-offset-2 panel panel-default">
@@ -46,7 +46,7 @@
   </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script>
 /*Affix the navbar after scroll below header*/
 $('#nav').affix({
@@ -55,4 +55,4 @@ $('#nav').affix({
   }
 });
 </script>
-@endsection
+@endpush

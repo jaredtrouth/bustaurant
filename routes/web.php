@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'SiteController@index');
 Route::get('/admin', 'AdminController@index');
 
 Route::resource('services', 'ServicesController');

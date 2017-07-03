@@ -26,7 +26,7 @@ class ServicesController extends Controller
       'startime'  => 'required|date',
       'endtime'   => 'required|date',
       'loc_name'  => 'required|string'
-    ]);
+    ]); 
 
     Service::create(['date', 'starttime', 'endtime', 'loc_name', 'loc_lat', 'loc_long']);
 

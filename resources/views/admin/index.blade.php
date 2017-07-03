@@ -31,9 +31,9 @@
           @foreach( $services as $service )
           <tr>
             <td><a href="/services/{{ $service->id }}/edit">{{ $service->id }}</a></td>
-            <td>{{$service->start_datetime->format('m-d-Y')}}</td>
-            <td>{{$service->start_datetime->format('h:i A')}}</td>
-            <td>{{$service->end_datetime->format('h:i A')}}</td>
+            <td>{{$service->date->format('m-d-Y')}}</td>
+            <td>{{$service->starttime->format('h:i A')}}</td>
+            <td>{{$service->endtime->format('h:i A')}}</td>
             <td><a href="//maps.google.com/?q={{$service->loc_lat}},{{$service->loc_long}}">{{$service->loc_name}}</a></td>
           </tr>
           @endforeach
