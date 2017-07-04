@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-  Edit Service - {{ $service->starttime->format('m/d/Y')}} @ {{ $service->loc_name }}
+  Add New Service
 @endsection
 
 @section('content')
@@ -18,31 +18,29 @@
         </div>
       @endif
 
-      <form action="/services/{{$service->id}}" method="POST" role="form">
+      <form action="/services" method="POST" role="form">
         {{ csrf_field() }}
-        {{ method_field('PUT') }}
-        <input type="hidden" id="loc_lat" name="loc_lat" value="{{ $service->loc_lat }}" />
-        <input type="hidden" id="loc_long" name="loc_long" value="{{ $service->loc_long}}" />
-        <legend>Edit Meal Service</legend>
+        <input type="hidden" id="loc_lat" name="loc_lat" />
+        <input type="hidden" id="loc_long" name="loc_long" />
+        <legend>Add Meal Service</legend>
 
         <div class="form-group{{ $errors->has('loc_name') ? ' has-error' : '' }}">
           <label for="loc_name">Location</label>
           <div class="input-group">
-            <input type="text" id="loc_name" name="loc_name" class="form-control" value="{{ $service->loc_name }}">
+            <input type="text" id="loc_name" name="loc_name" class="form-control" value="{{old('loc_name')}}" required>
             <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
           </div>
         </div>
 
         <div class="form-group{{ $errors->has('loc_address') ? ' has-error' : '' }}">
           <label for="loc_address">Address</label>
-          <input type="text" class="form-control" id="loc_address" name="loc_address" placeholder="123 Main St. Nashville, TN 12345" value="{{ $service->loc_address }}">
+          <input type="text" class="form-control" id="loc_address" name="loc_address" value="{{old('loc_address')}}" placeholder="123 Main St. Nashville, TN 12345" readonly>
         </div>
 
         <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
           <label for="date">Date</label>
           <div class="input-group">
-            <input type="text" class="datepicker form-control" id="date" name="date" placeholder="MM/DD/YY"
-            value="{{$service->starttime->format('m/d/Y')}}">
+            <input type="text" class="datepicker form-control" id="date" name="date" placeholder="MM/DD/YY" value="{{old('date')}}" required>
             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
           </div>
         </div>
@@ -50,8 +48,7 @@
         <div class="form-group{{ $errors->has('starttime') ? ' has-error' : '' }}">
           <label for="starttime">Start Time</label>
           <div class="input-group">
-            <input type="text" id="starttime" name="starttime" class="form-control" placeholder="HH:MM AM/PM"
-            value="{{ $service->starttime->format('g:i A') }}">
+            <input type="text" id="starttime" name="starttime" class="form-control" placeholder="HH:MM AM/PM" value="{{old('starttime')}}" required>
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
           </div>
         </div>
@@ -59,8 +56,7 @@
         <div class="form-group{{ $errors->has('endtime') ? ' has-error' : '' }}">
           <label for="endtime">End Time</label>
           <div class="input-group">
-            <input type="text" id="endtime" name="endtime" class="form-control" placeholder="HH:MM AM/PM"
-            value="{{ $service->endtime->format('g:i A') }}">
+            <input type="text" id="endtime" name="endtime" class="form-control" placeholder="HH:MM AM/PM" value="{{old('endtime')}}" required>
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
           </div>
         </div>
@@ -101,7 +97,7 @@
   function initMap() {
     resizeBootstrapMap();
 
-    var location = { lat: {{ $service->loc_lat }}, lng: {{ $service->loc_long }} };
+    var location = new google.maps.LatLng(36.158598, -86.775676);
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 16,
       center: location
@@ -151,7 +147,9 @@
         }
       }
 
-      $( '#loc_address' ).val( [address.street_number, address.route, address.locality, address.administrative_area_level_1, address.postal_code].join(' '));
+      $(' #loc_long' ).val(place.geometry.location.lng());
+      $( '#loc_lat' ).val(place.geometry.location.lat());
+      $( '#loc_address' ).val( place.formatted_address );
       $( '#loc_name' ).val(place.name);
 
       infowindowContent.children['place-icon'].src = place.icon;
