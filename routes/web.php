@@ -15,6 +15,6 @@ Route::get('/', 'SiteController@index');
 Route::get('/admin', 'AdminController@index');
 
 Route::resource('services', 'ServicesController');
-Route::resource('menuitems', 'MenuItemsController');
+Route::resource('menu', 'MenuItemsController');
 
 Auth::routes();

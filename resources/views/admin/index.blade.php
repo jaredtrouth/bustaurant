@@ -4,13 +4,17 @@
 
 @section('content')
   <div class="container">
-    <div id="admin-sidebar" class="container col-md-2 col-sm-3" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-      <ul class="nav nav-pills nav-stacked" role="tablist" id="admin-tabs">
-        <li role="presentation" class="active"><a href="#schedule" aria-controls="schedule" role="tab" data-toggle="pill">Schedule</a></li>
-        <li role="presentation"><a href="#menu" aria-controls="menu" role="tab" data-toggle="pill">Menu</a></li>
-      </ul>
+
+    <div class="col-md-2 col-sm-3">
+      <nav id="admin-sidebar" data-spy="affix" data-offset-top="51" data-offset-bottom="0">
+        <ul class="nav nav-pills nav-stacked" role="tablist" id="admin-tabs">
+          <li role="presentation" class="active"><a href="#schedule" aria-controls="schedule" role="tab" data-toggle="pill">Schedule</a></li>
+          <li role="presentation"><a href="#menu" aria-controls="menu" role="tab" data-toggle="pill">Menu</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="col-md-10 sol-sm-9 tab-content" id="admin-content">
+
+    <div class="col-md-10 col-sm-9 tab-content" id="admin-content">
       {{-- Schedule tab pane --}}
       <div role="tabpanel" class="tab-pane fade in active" id="schedule">
         <h2 class="text-center">Schedule <a class="btn btn-primary" href="{{ url('/services/create')}}"><span class="glyphicon glyphicon-plus"></span></a></h2>
@@ -60,10 +64,10 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <a class="pull-right" href="{{ url('item/'.$item->slug.'/edit') }}">Edit</a>
-                  <h3 class="panel-title"><strong><a href="/menuitems/{{$item->slug}}">{{ $item->name }}</a></strong></h3>
+                  <h3 class="panel-title"><strong><a href="/menu/{{$item->slug}}">{{ $item->name }}</a></strong></h3>
                 </div>
                 <div class="panel-body">
-                  <img src="{{ $item->image_path }}" class="img-thumbnail">
+                  <img src="{{ Storage::url($item->image_path) }}" class="img-thumbnail center-block">
                   <p>{{ str_limit($item->description, 50) }}</p>
                 </div>
               </div>
@@ -72,6 +76,7 @@
         @endif
       </div>
     </div>
+
   </div>
 @endsection
 
