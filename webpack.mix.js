@@ -17,6 +17,7 @@ var paths = {
  */
 
 mix.js('resources/assets/js/main.js', 'public/js')
+   .js('resources/assets/js/admin.js', 'public/js')
    .sass('resources/assets/sass/style.scss', 'public/css')
    .styles('node_modules/jquery-ui-bundle/jquery-ui.css', 'public/css/jquery-ui.css')
    .copyDirectory('resources/assets/img', 'public/images');;
