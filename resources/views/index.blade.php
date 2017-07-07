@@ -5,7 +5,7 @@
 @section('header')
 <header id="jumbotron" class="jumbotron">
 	<div class="text-vcenter">
-		<h1>The Bustaurant</h1>
+		<h1 class="shadowed">The Bustaurant</h1>
 		<h3>Everything tastes better on a bus!</h3>
 		<a class="btn btn-default btn-lg" id="about-btn" href="#about">Continue</a>
 	</div>
