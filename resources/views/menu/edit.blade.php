@@ -2,9 +2,9 @@
 
 @section('content')
   <div class="container">
-    <form class="col-sm-8 col-sm-offset-2" action="{{ url('/menu')}}" method="post" enctype="multipart/form-data">
+    <form class="col-sm-8 col-sm-offset-2" action="{{ url('/menu', $menuitem->slug)}}" method="post" enctype="multipart/form-data">
       {{ csrf_field() }}
-      {{ method_field('PUT') }}
+      {{ method_field('PATCH') }}
       <legend>Create Menu Item</legend>
       @if($errors->any())
         <div class="alert alert-danger">
@@ -22,9 +22,14 @@
           <input required type="text" class="form-control" id="name" name="name" placeholder="Title" value="{{$menuitem->name}}" onchange="updateSlug()">
         </div>
 
-        <div class="col-sm-6 form-group{{$errors->has('image') ? ' has-error' : ''}}">
+        <div class="col-sm-4 form-group{{$errors->has('image') ? ' has-error' : ''}}">
           <label for="image">Image</label>
           <input type="file" id="image" name="image">
+          <p class="help-block">The current image is displayed. To replace it upload a new image.</p>
+        </div>
+
+        <div class="col-sm-2">
+          <a href="{{ Storage::url($menuitem->image_path) }}"><img src="{{ Storage::url($menuitem->image_path) }}" alt="{{ $menuitem->name }}" class="img-thumbnail"></a>
         </div>
       </div>
 

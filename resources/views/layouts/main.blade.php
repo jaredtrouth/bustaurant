@@ -48,7 +48,8 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ad blanditiis delectus, possimus voluptatibus veritatis sapiente, sit iusto saepe deleniti expedita! Molestiae minus cupiditate veniam ad alias veritatis nulla consectetur.
 			</div>
 		</footer>
-		<script type="text/javascript" src="/js/main.js"></script>
+		<script src="{{ mix('js/main.js') }}" charset="utf-8"></script>
+		<script src="{{ mix('js/bus.js') }}" charset="utf-8"></script>
 		@stack('scripts')
 	</body>
 	</html>

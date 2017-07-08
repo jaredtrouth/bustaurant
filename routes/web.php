@@ -16,5 +16,6 @@ Route::get('/admin', 'AdminController@index');
 
 Route::resource('services', 'ServicesController');
 Route::resource('menu', 'MenuItemsController');
+Route::get('/menu/{id}/toggle-active', 'MenuItemsController@updateActive');
 
 Auth::routes();

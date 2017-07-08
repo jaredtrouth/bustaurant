@@ -1,6 +1,7 @@
 {
   "/js/main.js": "/js/main.js",
   "/css/style.css": "/css/style.css",
+  "/js/bus.js": "/js/bus.js",
   "/js/admin.js": "/js/admin.js",
   "/css/jquery-ui.css": "/css/jquery-ui.css"
 }

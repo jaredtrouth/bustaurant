@@ -3,14 +3,15 @@
   @if( !$services->count() )
     <span class="text-danger">There are no future services.</span>
   @else
-    <table class="table table-hover table-striped">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>Date</th>
           <th>Start Time</th>
           <th>End Time</th>
           <th>Location</th>
-          <th></th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -20,9 +21,9 @@
             <td>{{$service->starttime->format('h:i A')}}</td>
             <td>{{$service->endtime->format('h:i A')}}</td>
             <td><a href="//maps.google.com/?q={{$service->loc_lat}},{{$service->loc_long}}">{{$service->loc_name}}</a></td>
+            <td><a class="btn btn-xs btn-default" href="{{url('/services/'.$service->id.'/edit')}}"><i class="glyphicon glyphicon-pencil"></i></a></td>
             <td>
-                <a class="btn btn-xs btn-default" href="{{url('/services/'.$service->id.'/edit')}}"><i class="glyphicon glyphicon-pencil"></i></a>
-                <form class="pull-right" method="post" action="{{ url('/services', $service->id) }}">
+                <form method="post" action="{{ url('/services', $service->id) }}">
                   <button class="btn btn-xs btn-danger record-delete"><span class="danger glyphicon glyphicon-remove"></span></button>
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}

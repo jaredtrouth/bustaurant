@@ -3,13 +3,14 @@
 @section('title', 'Admin')
 
 @section('content')
-  <div class="container">
+  <div class="container" id="admin">
 
-      <nav id="admin-sidebar" data-spy="affix" data-offset-top="51" data-offset-bottom="0">
+      <nav id="admin-sidebar">
         <ul class="nav nav-tabs" role="tablist" id="admin-tabs">
-          <li role="presentation" class="active"><a href="#schedule" aria-controls="schedule" role="tab" data-toggle="pill">Schedule</a></li>
-          <li role="presentation"><a href="#menu" aria-controls="menu" role="tab" data-toggle="pill">Menu</a></li>
-          <li role="presentation"><a href="#news" aria-controls="news" role="tab" data-toggle="pill">News</a></li>
+          <li role="presentation" class="active"><a href="#schedule" aria-controls="schedule" role="tab" data-toggle="tab">Schedule</a></li>
+          <li role="presentation"><a href="#menu" aria-controls="menu" role="tab" data-toggle="tab">Menu</a></li>
+          <li role="presentation"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">News</a></li>
+          <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
         </ul>
       </nav>
 
@@ -20,6 +21,8 @@
       @include('admin.partials.menu')
       {{-- News tab pane --}}
       @include('admin.partials.news')
+      {{-- Users tab pane --}}
+      @include('admin.partials.users')
     </div>
 
   </div>

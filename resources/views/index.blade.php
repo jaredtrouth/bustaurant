@@ -48,11 +48,6 @@
 
 @push('scripts')
 <script>
-/*Affix the navbar after scroll below header*/
-$('#nav').affix({
-  offset: {
-    top: $('.jumbotron').height()+$('#nav').height()+96
-  }
-});
+
 </script>
 @endpush

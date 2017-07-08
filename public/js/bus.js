@@ -63,29 +63,30 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 37:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(9);
-
-
-/***/ }),
-
-/***/ 9:
+/***/ 10:
 /***/ (function(module, exports) {
 
+/*Affix the navbar after scroll below header*/
 $(function () {
-  $('.record-delete').click(function () {
-    if (!confirm("Are you sure you want to delete this?")) {
-      return false;
+  $('#nav').affix({
+    offset: {
+      top: $('.jumbotron').height() + $('#nav').height() + 96
     }
   });
 });
+
+/***/ }),
+
+/***/ 38:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(10);
+
 
 /***/ })
 

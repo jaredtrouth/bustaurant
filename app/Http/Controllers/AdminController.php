@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Service;
 use App\MenuItem;
 use App\Post;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -19,6 +20,7 @@ class AdminController extends Controller
     $services = Service::where('end_datetime', '>=', new \DateTime())->get();
     $menuitems = MenuItem::all();
     $posts = Post::paginate(10);
-    return view('admin.index', compact(['services', 'menuitems', 'posts']));
+    $users = User::all();
+    return view('admin.index', compact(['services', 'menuitems', 'posts', 'users']));
   }
 }

@@ -16,7 +16,7 @@ class CreateMenuAndMenuitemsTables extends Migration
         Schema::create('menuitems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('image_path');
             $table->text('description');
             $table->boolean('active')->default(false);
