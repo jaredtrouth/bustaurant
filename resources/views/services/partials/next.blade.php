@@ -1,5 +1,5 @@
 <div class="row">
-  @if (!$nextservice)
+  @if (!$nextservice->count())
     <div class="alert alert-danger">
       No services are currently scheduled
     </div>
