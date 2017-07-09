@@ -1,5 +1,9 @@
 <div class="row">
-
+  @if (!$nextservice)
+    <div class="alert alert-danger">
+      No services are currently scheduled
+    </div>
+  @else
   <div class="col-md-6">
     <address>
       <h4><i class="glyphicon glyphicon-map-marker"></i> <strong>{{ $nextservice->loc_name }}</strong></h4>
@@ -28,7 +32,7 @@
     </div>
 
   </div>
-
+  @endif
 </div>
 
 @push('scripts')
