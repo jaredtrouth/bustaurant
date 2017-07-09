@@ -75,7 +75,7 @@
 $(function () {
   $('#nav').affix({
     offset: {
-      top: $('.jumbotron').height() + $('#nav').height() + 96
+      top: $('.jumbotron').height() + $('#nav').height() + 51
     }
   });
 });

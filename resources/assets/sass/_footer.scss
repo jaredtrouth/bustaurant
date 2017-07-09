@@ -1,0 +1,34 @@
+// Footer
+.footer {
+	background-color: #2B0078;
+  color: #fff;
+	padding: 1em 0;
+}
+
+.social-icons img {
+  max-width: 10rem;
+  height: auto;
+  display: inline-block;
+  transition: all 0.25s;
+}
+
+ul.social-icons li {
+  display: inline;
+}
+
+.social-icons a img:hover,
+.social-icons a img:active {
+  transform: scale(1.1);
+}
+
+#footer-nav ul {
+  padding: 0;
+}
+
+#footer-nav li {
+  list-style: none;
+}
+
+#footer-nav a {
+  color: #fff;
+}

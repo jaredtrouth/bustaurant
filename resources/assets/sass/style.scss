@@ -14,6 +14,9 @@
 // Menu
 @import "menu";
 
+// Footer
+@import "footer";
+
 html, body {
 	height: 100%;
 }
@@ -87,6 +90,11 @@ p.lead.text-inverse > strong > a {
 	padding-top: 0;
 }
 
+// About
+#about {
+	padding-bottom: 2rem;
+}
+
 // map
 #map {
 	min-height: 300px;
@@ -99,11 +107,5 @@ p.lead.text-inverse > strong > a {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
-	padding: 1em 0;
-}
-
-// Footer
-.footer {
-	background-color: rgb(34, 34, 34);
 	padding: 1em 0;
 }

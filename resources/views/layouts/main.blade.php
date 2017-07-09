@@ -45,9 +45,37 @@
 
 		<footer class="footer">
 			<div class="container">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ad blanditiis delectus, possimus voluptatibus veritatis sapiente, sit iusto saepe deleniti expedita! Molestiae minus cupiditate veniam ad alias veritatis nulla consectetur.
+
+				<div class="col-sm-8">
+					<h3 class="text-center">It's Okay to be a Follower!</h3>
+					<div class="row text-center social-icons">
+						<a href="//www.facebook.com/thebustaurant"><img src="{{ asset('images/social-facebook.png') }}" class="img-responsive" alt="Facebook"></a>
+						<a href="//www.instagram.com/bustaurant"><img src="{{ asset('images/social-instagram.png') }}" class="img-responsive" alt="Instagram"></a>
+						<a href="//twitter.com"><img src="{{ asset('images/social-twitter.png') }}" class="img-responsive" alt="Twitter"></a>
+						<a href="//flickr.com"><img src="{{ asset('images/social-flickr.png') }}" class="img-responsive" alt="Flickr"></a>
+					</div>
+				</div>
+
+				<div class="col-sm-4 text-center" id="footer-nav">
+				  <h3>The Bustaurant</h3>
+					<ul>
+						<li><a href="{{ url('/about') }}">About</a></li>
+						<li><a href="{{ url('/services') }}">Services</a></li>
+						<li><a href="{{ url('/menu') }}">Menu</a></li>
+						<li><a href="{{ url('/news') }}">News</a></li>
+					</ul>
+				</div>
 			</div>
 		</footer>
+
+		<div class="container" style="padding-top: 1rem;">
+			<div class="col-xs-6">
+				<p class="pull-left">Copyright &copy;2017 The Bustaurant</p>
+			</div>
+			<div class="col-xs-6">
+				<p class="pull-right">Site design by <a href="www.trouth.net">Trouth.Net</a></p>
+			</div>
+		</div>
 		<script src="{{ mix('js/main.js') }}" charset="utf-8"></script>
 		<script src="{{ mix('js/bus.js') }}" charset="utf-8"></script>
 		@stack('scripts')
