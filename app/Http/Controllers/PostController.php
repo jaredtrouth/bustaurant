@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Service;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -23,7 +25,10 @@ class PostController extends Controller
   public function index()
   {
     $posts = Post::paginate(10);
-    return view('news.index', compact(['posts']));
+    $upcomingservices = Service::where('starttime', '>=', Carbon::now())->oldest('starttime')->limit(5)->get();
+    $nextservice = Service::where('endtime', '>=', Carbon::now())->oldest('endtime')->first();
+
+    return view('news.index', compact(['posts', 'upcomingservices', 'nextservice']));
   }
 
   /**
@@ -44,7 +49,15 @@ class PostController extends Controller
   */
   public function store(Request $request)
   {
-    //
+    $this->validate($request, [
+      'title'   => 'string|required',
+      'slug'    => 'max:50|alpha_dash|required|unique:posts,slug',
+      'body'    => 'string|required',
+    ]);
+
+    Post::create($request->except(['_token']));
+
+    return redirect('/admin');
   }
 
   /**
@@ -53,9 +66,13 @@ class PostController extends Controller
   * @param  \App\Post  $post
   * @return \Illuminate\Http\Response
   */
-  public function show(Post $post)
+  public function show($slug)
   {
-    //
+    $post = Post::where('slug', '=', $slug)->first();
+    $upcomingservices = Service::where('starttime', '>=', Carbon::now())->oldest('starttime')->limit(5)->get();
+    $nextservice = Service::where('endtime', '>=', Carbon::now())->oldest('endtime')->first();
+
+    return view('news.show', compact(['post', 'upcomingservices', 'nextservice']));
   }
 
   /**
@@ -64,9 +81,11 @@ class PostController extends Controller
   * @param  \App\Post  $post
   * @return \Illuminate\Http\Response
   */
-  public function edit(Post $post)
+  public function edit($slug)
   {
-    //
+    $post = Post::where('slug', '=', $slug)->first();
+
+    return view('news.edit', compact(['post']));
   }
 
   /**
@@ -76,9 +95,13 @@ class PostController extends Controller
   * @param  \App\Post  $post
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, Post $post)
+  public function update(Request $request, $slug)
   {
-    //
+    $post = Post::where('slug', '=', $slug)->first();
+
+    $post->update($request->except(['_token', '_method']));
+
+    return redirect('/admin');
   }
 
   /**
@@ -89,6 +112,6 @@ class PostController extends Controller
   */
   public function destroy(Post $post)
   {
-    //
+    $post->delete();
   }
 }

@@ -28,11 +28,11 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav">
-					<li><a href="/">Home</a></li>
+					<li><a href="{{ url('/') }}">Home</a></li>
 					<li><a href="/about">About</a></li>
-					<li><a href="/find">Where's the Bus?</a></li>
-					<li><a href="/menu">Menu</a></li>
-					<li><a href="/news">News</a></li>
+					<li><a href="{{ url('/services') }}">Where's the Bus?</a></li>
+					<li><a href="{{ url('/menu') }}">Menu</a></li>
+					<li><a href="{{ url('/news') }}">News</a></li>
 				</ul>
 			</div>
 		</div>
