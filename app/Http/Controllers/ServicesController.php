@@ -54,7 +54,8 @@ class ServicesController extends Controller
 
   // Show
   function show(Service $service) {
-    return view('services.show', compact('service'));
+    $upcomingservices = Service::where('starttime', '>=', Carbon::now())->oldest('starttime')->limit(5)->get();
+    return view('services.show', compact(['service', 'upcomingservices']));
   }
 
   // Edit

@@ -36,7 +36,7 @@ p.lead.text-inverse > strong > a {
 }
 
 // Jumbotron
-#jumbotron {
+.jumbotron {
 	background: url('../img/busbg.jpg') center center no-repeat fixed;
 	display: table;
 	-webkit-background-size: cover;
@@ -44,6 +44,20 @@ p.lead.text-inverse > strong > a {
 	background-size: cover;
 	height: 90%;
 	width: 100%;
+	margin-bottom: 0;
+}
+
+.about-jumbotron {
+	background: url('../img/Dirty-England-Flag.jpg') center center no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	height: 500px;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.jumbotron-service {
 	margin-bottom: 0;
 }
 

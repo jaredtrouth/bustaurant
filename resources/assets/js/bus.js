@@ -2,7 +2,7 @@
 $(function() {
   $('#nav').affix({
     offset: {
-      top: $('.jumbotron').height()+$('#nav').height()+51
+      top: $('#jumbotron').height()+$('#nav').height()+51
     }
   });
 });

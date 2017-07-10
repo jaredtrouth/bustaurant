@@ -12,11 +12,14 @@
 */
 
 Route::get('/', 'SiteController@index');
+Route::get('/about', 'SiteController@about');
+
 Route::get('/admin', 'AdminController@index');
 
 Route::resource('services', 'ServicesController');
 Route::resource('menu', 'MenuItemsController');
-Route::resource('news', 'PostController');
 Route::get('/menu/{id}/toggle-active', 'MenuItemsController@updateActive');
+Route::resource('news', 'PostController');
+
 
 Auth::routes();

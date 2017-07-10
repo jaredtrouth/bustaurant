@@ -13,6 +13,7 @@
   <div class="col-md-6">
     <h5><i class="glyphicon glyphicon-calendar"></i> {{ $nextservice->starttime->format('l, F jS, Y') }}</h5>
     <h5><i class="glyphicon glyphicon-time"></i> {{ $nextservice->starttime->format('g:i A')}} - {{ $nextservice->endtime->format('g:i A')}}</h5>
+    <a href="{{ url('services', $nextservice->id) }}" class="btn btn-primary">Details</a>
   </div>
 </div>
 
