@@ -17,7 +17,7 @@ class AdminController extends Controller
 
   public function index()
   {
-    $services = Service::where('end_datetime', '>=', new \DateTime())->get();
+    $services = Service::where('endtime', '>=', new \DateTime())->get();
     $menuitems = MenuItem::all();
     $posts = Post::paginate(10);
     $users = User::all();
