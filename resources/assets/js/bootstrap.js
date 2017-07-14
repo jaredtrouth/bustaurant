@@ -11,6 +11,7 @@ window.$ = window.jQuery = require('jquery');
 window.$ = $.extend(require('jquery-ui-bundle'));
 
 require('bootstrap-sass');
+require('fullcalendar');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

@@ -3,5 +3,6 @@
   "/css/style.css": "/css/style.css",
   "/js/bus.js": "/js/bus.js",
   "/js/admin.js": "/js/admin.js",
-  "/css/jquery-ui.css": "/css/jquery-ui.css"
+  "/css/jquery-ui.css": "/css/jquery-ui.css",
+  "/css/fullcalendar.css": "/css/fullcalendar.css"
 }

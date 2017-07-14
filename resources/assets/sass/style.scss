@@ -1,6 +1,5 @@
-
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple|Raleway');
 
 // Variables
 @import "variables";
@@ -8,14 +7,11 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-// Admin
+// Imports
 @import "admin";
-
-// Menu
 @import "menu";
-
-// Footer
 @import "footer";
+@import "services";
 
 html, body {
 	height: 100%;
@@ -37,40 +33,13 @@ p.lead.text-inverse > strong > a {
 
 // Jumbotron
 .jumbotron {
-	background: url('../img/busbg.jpg') center center no-repeat fixed;
-	display: table;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	height: 90%;
-	width: 100%;
-	margin-bottom: 0;
-}
-
-.about-jumbotron {
-	background: url('../img/Dirty-England-Flag.jpg') center center no-repeat;
+	background: url('../img/Dirty-England-Flag.jpg') center center no-repeat fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	height: 500px;
 	width: 100%;
 	margin-bottom: 0;
-}
-
-.jumbotron-service {
-	margin-bottom: 0;
-}
-
-.text-vcenter {
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.text-vcenter h1 {
-	font-size: 4.5em;
-	font-weight: 700;
-	margin: 0;
 	padding: 0;
 }
 

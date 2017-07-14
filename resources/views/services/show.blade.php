@@ -23,26 +23,28 @@
 @section('content')
   <div class="container">
 
-    <div class="col-lg-5 col-md-5 col-sm-6">
-      <h1>{{ $service->starttime->toDayDateTimeString() }}</h1>
-      <address>
-        <strong>{{ $service->loc_name }}</strong><br>
-        {{ $service->loc_address }}
-      </address>
-      <br>
+    <div class="col-lg-9 col-md-9 col-sm-12">
 
-      <form class="form-inline" action="#" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" id="origin" placeholder="Starting point">
-        </div>
-        <button type="button" class="btn btn-primary" id="dirButton">
-          Get Directions
-        </button>
-      </form>
-    </div>
+      <div class="col-sm-7">
+        <h1>{{ $service->starttime->toDayDateTimeString() }}</h1>
+        <address>
+          <strong>{{ $service->loc_name }}</strong><br>
+          {{ $service->loc_address }}
+        </address>
+        <br>
+      </div>
 
-    <div id="directions-panel" class="col-lg-4 col-md-4 col-sm-6" style="overflow-y: scroll;">
+      <div class="col-sm-5">
+        <h3>Directions</h3>
+          <div class="form-group">
+            <input type="text" class="form-control" id="origin" placeholder="Starting point">
+          </div>
+          <button type="button" class="btn btn-primary" id="dirButton">
+            Get Directions
+          </button>
+      </div>
 
+      <div id="directions-panel" class="col-sm-12"></div>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-12">

@@ -18,8 +18,10 @@ class ServicesController extends Controller
 
   // Index
   function index() {
-    $services = Service::where('endtime', '>=', Carbon::now())->get();
-    return view('services.index', compact('services'));
+    $services = Service::where('endtime', '>=', Carbon::now())->oldest('starttime')->get();
+    $nextservice = $services->first();
+    $calendarData = json_encode($services);
+    return view('services.index', compact(['services', 'nextservice', 'calendarData']));
   }
 
   // Create

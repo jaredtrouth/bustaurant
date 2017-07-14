@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 156);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 10:
+/***/ 127:
 /***/ (function(module, exports) {
 
 /*Affix the navbar after scroll below header*/
@@ -82,10 +82,10 @@ $(function () {
 
 /***/ }),
 
-/***/ 38:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(10);
+module.exports = __webpack_require__(127);
 
 
 /***/ })

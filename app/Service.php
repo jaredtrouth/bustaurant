@@ -21,5 +21,7 @@ class Service extends Model
     'loc_lat',
     'loc_long'
   ];
+
   
+
 }

@@ -5,7 +5,8 @@
 	<meta name="author" content="Jared Trouth">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/style.css') }}">
-	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="{{ mix('/css/fullcalendar.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ mix('/css/jquery-ui.css') }}">
 
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -28,11 +29,11 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-					<li><a href="/about">About</a></li>
-					<li><a href="{{ url('/services') }}">Where's the Bus?</a></li>
-					<li><a href="{{ url('/menu') }}">Menu</a></li>
-					<li><a href="{{ url('/news') }}">News</a></li>
+					<li><a href="{{ url('/') }}" title="Home">Home</a></li>
+					<li><a href="{{ url('/about') }}" title="About">About</a></li>
+					<li><a href="{{ url('/services') }}" title="Services">Where's the Bus?</a></li>
+					<li><a href="{{ url('/menu') }}" title="Menu">Bus Fare</a></li>
+					<li><a href="{{ url('/news') }}" title="News">News</a></li>
 				</ul>
 			</div>
 		</div>
@@ -73,7 +74,7 @@
 				<p class="pull-left">Copyright &copy;2017 The Bustaurant</p>
 			</div>
 			<div class="col-xs-6">
-				<p class="pull-right">Site design by <a href="www.trouth.net">Trouth.Net</a></p>
+				<p class="pull-right">Site design by <a href="//www.trouth.net">Trouth.Net</a></p>
 			</div>
 		</div>
 		<script src="{{ mix('js/main.js') }}" charset="utf-8"></script>

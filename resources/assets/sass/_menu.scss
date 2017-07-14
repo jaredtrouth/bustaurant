@@ -1,3 +1,48 @@
+// Jumbotron
+// .menu-jumbotron {
+// 	background: url('../img/chalkboard-bg.jpg') left top no-repeat;
+// 	-webkit-background-size: 100% 500px;
+// 	-moz-background-size: 100% 500px;
+// 	background-size: cover;
+// 	height: 500px;
+// 	width: 100%;
+// 	margin-bottom: 0;
+// 	padding: 0;
+// }
+
+.menu-board {
+  background: url('../img/chalkboard-bg.jpg') center center no-repeat;
+  -webkit-background-size: 100% 500px;
+  -moz-background-size: 100% 500px;
+  background-size: auto 500px;
+  height: 500px;
+  width: 670px;
+  margin: 0 auto;
+  overflow: scroll;
+  padding: 40px;
+  font-size: 2.25rem;
+  font-family: 'Homemade Apple', cursive;
+  color: #fff;
+}
+
+.menu-board h1 {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.menu-board a {
+  color: #fff;
+}
+
+.menu-board ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.menu-board ul li {
+  padding-bottom: 2rem;
+}
+
 .menu-item-panel:hover {
   transform: scale(1.05);
   transition: all 0.25s ease-in;

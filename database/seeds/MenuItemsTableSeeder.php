@@ -13,11 +13,7 @@ class MenuItemsTableSeeder extends Seeder
     {
         DB::table('menuitems')->delete();
 
-        $items = array(
-          ['id' => 1, 'name' => 'Steak Kabobs', 'slug' => 'steak-kabobs', 'image_path' => '/foo/bar.jpg', 'description' => 'Cupidatat voluptate elit irure voluptate sunt ut dolor eu magna id incididunt ut eiusmod in fugiat aliqua ea laboris.', 'active' => true, 'created_at' => new DateTime, 'updated_at' => new DateTime],
-          ['id' => 2, 'name' => 'The Best Cuban Sandwich', 'slug' => 'cuban', 'image_path' => 'foo/bar2.jpg', 'description' => 'In irure et occaecat.', 'active' => true, 'created_at' => new DateTime, 'updated_at' => new DateTime],
-        );
+        factory(App\MenuItem::class)->times(10)->create();
 
-        DB::table('menuitems')->insert($items);
     }
 }
