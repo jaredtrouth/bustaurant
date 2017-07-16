@@ -27,8 +27,18 @@ ul.social-icons li {
 
 #footer-nav li {
   list-style: none;
+	display: block;
+	padding: .25rem 0;
 }
 
 #footer-nav a {
   color: #fff;
+	padding: .5rem 3rem;
+	display: inline;
+}
+
+#footer-nav a:hover,
+#footer-nav a:active {
+	background-color: $brand-danger;
+	color: #000;
 }

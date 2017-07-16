@@ -34,6 +34,8 @@
 					<li><a href="{{ url('/services') }}" title="Services">Where's the Bus?</a></li>
 					<li><a href="{{ url('/menu') }}" title="Menu">Bus Fare</a></li>
 					<li><a href="{{ url('/news') }}" title="News">News</a></li>
+					<li><a href="{{ url('/catering') }}" title="Catering">Catering</a></li>
+					<li><a href="{{ url('/contact') }}" title="Contact Us">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -59,11 +61,13 @@
 
 				<div class="col-sm-4 text-center" id="footer-nav">
 				  <h3>The Bustaurant</h3>
-					<ul>
+					<ul class="nav">
 						<li><a href="{{ url('/about') }}">About</a></li>
 						<li><a href="{{ url('/services') }}">Services</a></li>
 						<li><a href="{{ url('/menu') }}">Menu</a></li>
 						<li><a href="{{ url('/news') }}">News</a></li>
+						<li><a href="{{ url('/catering') }}" title="Catering">Catering</a></li>
+						<li><a href="{{ url('/contact') }}" title="Contact Us">Contact</a></li>
 					</ul>
 				</div>
 			</div>

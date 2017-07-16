@@ -14,6 +14,8 @@
 Route::get('/', 'SiteController@index');
 Route::get('/about', 'SiteController@about');
 Route::get('/catering', 'SiteController@catering');
+Route::get('/contact', 'SiteController@contactForm');
+Route::post('/contact', 'SiteController@contactFormPost');
 
 Route::get('/admin', 'AdminController@index');
 
