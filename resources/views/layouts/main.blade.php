@@ -9,18 +9,23 @@
 	<link rel="stylesheet" type="text/css" href="{{ mix('/css/jquery-ui.css') }}">
 
 	<!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+	<script>
+    window.Laravel = {!! json_encode([
+        'csrfToken'=>csrf_token()
+    ]) !!}
+	</script>
 
 	<title>The Bustaurant | @yield('title')</title>
 </head>
 
-<body data-spy="scroll" data-target="#nav" data-offset="50">
+<body>
 	@yield('header')
 	@section('navbar')
-	<nav class="navbar navbar-default navbar-static-top" id="nav" role="navigation">
+	<nav class="navbar navbar-default" id="nav" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collpse-main">
+				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse-main">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span><span class="icon-bar"></span>
 					<span class="icon-bar"></span>
