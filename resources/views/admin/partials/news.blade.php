@@ -7,6 +7,7 @@
       <thead>
         <th>ID</th>
         <th>Title</th>
+        <th>Author</th>
         <th>Created</th>
         <th>Last Modified</th>
         <th>Edit</th>
@@ -17,6 +18,7 @@
           <tr>
             <td>{{ $post->id}}</td>
             <td><a href="{{ url('/news', $post->slug) }}">{{ $post->title }}</a></td>
+            <td>{{ $post->user->name }}</td>
             <td>{{ $post->created_at->diffForHumans() }}</td>
             <td>{{ $post->updated_at->diffForHumans() }}</td>
             <td><a class="btn btn-xs btn-default" href="{{ url('/news/'.$post->slug.'/edit')}}"><i class="glyphicon glyphicon-pencil"></i></a></td>

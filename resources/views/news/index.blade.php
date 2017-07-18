@@ -12,7 +12,7 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <h2><a href="{{ url('news', $post->slug) }}">{{ $post->title }}</a></h2>
-            <span><em>Posted {{ $post->created_at->format('l, F jS, Y @ g:i A') }}</em></span>
+            <span><em>Posted {{ $post->created_at->format('l, F jS, Y @ g:i A') }}</em> by <em>{{ $post->user->name }}</em></span>
             <p>{!! str_limit($post->body, 500, '...<br /><a href="'.url('news', $post->slug).'">Read More</a>') !!}</p>
           </div>
 

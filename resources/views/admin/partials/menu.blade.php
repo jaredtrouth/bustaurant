@@ -14,7 +14,7 @@
         <th>Delete</th>
       </thead>
       <tbody>
-        @foreach( $menuitems->sortBy('active') as $item )
+        @foreach( $menuitems as $item )
           <tr>
             <td><a href="{{ url('/menu', $item->slug)}}">{{ $item->name }}</a></td>
             <td><button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#imgModal" data-name="{{ $item->name }}" data-src="{{ Storage::url($item->image_path) }}">View</button></td>

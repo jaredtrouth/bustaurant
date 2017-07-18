@@ -38,6 +38,8 @@ class PostController extends Controller
   */
   public function create()
   {
+    $this->authorize('create', Post::class);
+
     return view('news.create');
   }
 
@@ -49,6 +51,8 @@ class PostController extends Controller
   */
   public function store(Request $request)
   {
+    $this->authorize('create', Post::class );
+
     $this->validate($request, [
       'title'   => 'string|required',
       'slug'    => 'max:50|alpha_dash|required|unique:posts,slug',
@@ -85,6 +89,8 @@ class PostController extends Controller
   {
     $post = Post::where('slug', '=', $slug)->first();
 
+    $this->authorize('update', $post);
+
     return view('news.edit', compact(['post']));
   }
 
@@ -99,6 +105,14 @@ class PostController extends Controller
   {
     $post = Post::where('slug', '=', $slug)->first();
 
+    $this->authorize('update', $post);
+
+    $this->validate($request, [
+      'title'   => 'string|required',
+      'slug'    => 'max:50|alpha_dash|required|unique:posts,slug',
+      'body'    => 'string|required',
+    ]);
+
     $post->update($request->except(['_token', '_method']));
 
     return redirect('/admin');
@@ -112,6 +126,8 @@ class PostController extends Controller
   */
   public function destroy(Post $post)
   {
+    $this->authorize('delete', $post);
+
     $post->delete();
   }
 }
