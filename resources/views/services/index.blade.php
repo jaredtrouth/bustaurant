@@ -32,8 +32,8 @@
       aspectRatio: '2.25',
       header: {
         left: 'title',
-        center: 'today',
-        right: 'prev next listMonth agendaWeek agendaDay'
+        center: 'prev today next',
+        right: 'listMonth agendaWeek agendaDay'
       },
       scrollTime: '10:00:00',
       events: events,
