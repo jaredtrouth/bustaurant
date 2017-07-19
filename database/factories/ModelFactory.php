@@ -31,6 +31,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'title' => $name,
         'slug' => $slug,
         'body' => $faker->paragraphs(3,true),
+        'user_id' => 1,
     ];
 });
 

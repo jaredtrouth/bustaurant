@@ -14,8 +14,8 @@ class AddUserToPost extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->default(1);
-            $table->foreign('user_id')->references('id')->on('user');
+	    $table->integer('user_id')->unsigned()->default(1);
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
