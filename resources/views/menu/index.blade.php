@@ -19,22 +19,26 @@
   <div class="container">
     <h1 class="text-center">Other Fare</h1>
     <p class="lead">We won't be serving these dishes today, but look for them to make an appearance on George's menu in the future.</p>
-    @foreach ($menuitems as $item)
-      <div class="col-sm-4 col-md-3">
+    @for ($i=0; $i < $menuitems->count(); $i++)
+      @if ($i % 4 === 0)
+        <div class="row">
+      @endif
+
+      <div class="col-md-3">
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4 class="panel-title"><a href="{{url('menu', $item->slug)}}">{{ $item->name }}</a></h4>
+            <h4 class="panel-title"><a href="{{url('menu', $menuitems[$i]->slug)}}">{{ $menuitems[$i]->name }}</a></h4>
           </div>
           <div class="panel-body">
             <div class="row">
 
               <div class="col-xs-4">
-                <img src="{{ Storage::url($item->image_path) }}" alt="{{ $item->name }}" class="img-responsive">
+                <img src="{{ Storage::url($menuitems[$i]->image_path) }}" alt="{{ $menuitems[$i]->name }}" class="img-responsive">
               </div>
 
               <div class="col-xs-8">
-                {{ str_limit($item->description, 50) }}
+                {{ str_limit($menuitems[$i]->description, 50) }}
               </div>
 
             </div>
@@ -43,6 +47,9 @@
         </div>
 
       </div>
-    @endforeach
+      @if ($i % 4 === 3)
+      </div>
+      @endif
+    @endfor
   </div>
 @endsection
