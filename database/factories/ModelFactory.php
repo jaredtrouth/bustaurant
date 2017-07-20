@@ -38,7 +38,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
 $factory->define(App\MenuItem::class, function (Faker\Generator $faker) {
     $name = title_case($faker->unique()->words($faker->numberBetween(1,4), true));
     $slug = str_slug($name);
-    Storage::put('public/menuitems/' . $slug . '.jpg', File::get($faker->image()));
+    Storage::put('public/menuitems/' . $slug . '.jpg', File::get($faker->image('/tmp', '640', '480', 'food')));
 
     return [
         'name' => $name,
