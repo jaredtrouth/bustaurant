@@ -26,10 +26,13 @@
       events.push(event);
     });
 
-
     $( '#calendar' ).fullCalendar({
       defaultView: 'listMonth',
+      validRange: {
+        start: new Date(),
+      },
       aspectRatio: '2.25',
+      nowIndicator: true,
       header: {
         left: 'title',
         center: 'prev today next',
