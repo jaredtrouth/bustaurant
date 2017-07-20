@@ -24,4 +24,6 @@ mix.js('resources/assets/js/main.js', 'public/js')
    .styles('node_modules/fullcalendar/dist/fullcalendar.css', 'public/css/fullcalendar.css')
    .copyDirectory('resources/assets/img', 'public/images');;
 
-mix.browserSync('bustaurant.dev');
+mix.browserSync({
+  proxy: 'localhost:8000',
+});
