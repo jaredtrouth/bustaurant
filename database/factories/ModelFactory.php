@@ -38,11 +38,12 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
 $factory->define(App\MenuItem::class, function (Faker\Generator $faker) {
     $name = title_case($faker->unique()->words($faker->numberBetween(1,4), true));
     $slug = str_slug($name);
+    Storage::put('public/menuitems/' . $slug . '.jpg', File::get($faker->image()));
 
     return [
         'name' => $name,
         'slug' => $slug,
-        'image_path' => 'public/menuitems/OsFwN0Dc27iKkaUv6W3ObcDr7yMEhRk2DUJSI0Bg.jpeg',
+        'image_path' => 'public/menuitems/' . $slug . '.jpg',
         'description' => $faker->text(300),
         'price' => $faker->randomDigit,
         'active' => $faker->boolean,
