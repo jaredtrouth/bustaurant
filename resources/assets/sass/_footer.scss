@@ -35,10 +35,14 @@ ul.social-icons li {
   color: #fff;
 	padding: .5rem 3rem;
 	display: inline;
+	font-weight: bold;
+	transition: 0.2s all;
 }
 
 #footer-nav a:hover,
 #footer-nav a:active {
 	background-color: $brand-danger;
-	color: #000;
+	border-radius: 50px;
+	color: $brand-primary;
+	font-weight: bold;
 }
