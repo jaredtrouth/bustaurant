@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\MenuItem;
+use App\Service;
 
 class MenuItemsController extends Controller
 {
@@ -23,7 +25,9 @@ class MenuItemsController extends Controller
   //  Show
   function show($slug) {
     $menuitem = MenuItem::where('slug', '=', $slug)->first();
-    return view('menu.show', compact('menuitem'));
+    $nextservice = Service::where('endtime', '>=', Carbon::now())->oldest('endtime')->first();
+    $upcomingservices = Service::where('starttime', '>=', Carbon::now())->oldest('starttime')->limit(5)->get();
+    return view('menu.show', compact(['menuitem', 'nextservice', 'upcomingservices']));
   }
 
   // Create
