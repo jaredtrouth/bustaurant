@@ -23,4 +23,5 @@ class AdminController extends Controller
     $users = User::all();
     return view('admin.index', compact(['services', 'menuitems', 'posts', 'users']));
   }
+
 }
