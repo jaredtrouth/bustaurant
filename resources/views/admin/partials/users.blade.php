@@ -83,9 +83,11 @@
             </div>
           </div>
 
-          <div class="checkbox">
-            <label for="admin">Admin</label>
-            <input type="checkbox" name="admin">
+          <div class="form-group">
+            <label for="admin" class="col-md-4 control-label">Admin</label>
+            <div class="col-md-8">
+              <input type="checkbox" name="admin" class="form-control">
+            </div>
           </div>
 
         </div>
