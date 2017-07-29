@@ -84,9 +84,13 @@
           </div>
 
           <div class="form-group">
-            <label for="admin" class="col-md-4 control-label">Admin</label>
-            <div class="col-md-8">
-              <input type="checkbox" name="admin" class="form-control">
+            <div class="col-md-offset-4 col-md-8">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="admin"> Site Administrator?
+                </label>
+                <p class="help-block">Don't check this unless you know what you're doing!</p>
+              </div>
             </div>
           </div>
 
