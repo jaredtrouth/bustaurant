@@ -125,12 +125,18 @@
       infowindow.close();
       marker.setVisible(false);
       var place = autocomplete.getPlace();
+
       if (!place.geometry) {
         // User entered the name of a Place that was not suggested and
         // pressed the Enter key, or the Place Details request failed.
         window.alert("No details available for input: '" + place.name + "'");
         return;
       }
+
+      // Set value of hidden latitude and longitude inputs
+      console.log(place.geometry.location.lat());
+      $( 'input#loc_lat').val(place.geometry.location.lat());
+      $( 'input#loc_long').val(place.geometry.location.lng());
 
       // If the place has a geometry, then present it on a map.
       if (place.geometry.viewport) {
