@@ -24,4 +24,11 @@ class AdminController extends Controller
     return view('admin.index', compact(['services', 'menuitems', 'posts', 'users']));
   }
 
+  public function deleteUser(User $user)
+  {
+    $user->destroy();
+
+    return redirect('admin');
+  }
+
 }

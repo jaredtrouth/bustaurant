@@ -42,6 +42,23 @@
 					<li><a href="{{ url('/catering') }}" title="Catering">Catering</a></li>
 					<li><a href="{{ url('/contact') }}" title="Contact Us">Contact</a></li>
 				</ul>
+
+				@if (Auth::check())
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="{{ url('admin') }}">Admin</a></li>
+								<li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit()">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form id="logout-form" action="{{ route('logout') }}" method="post" style="display:none;">
+						{{ csrf_field() }}
+					</form>
+				@endif
+
 			</div>
 		</div>
 	</nav>
