@@ -46,7 +46,7 @@
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="{{ route('register') }}" method="post">
+        <form class="form-horizontal" role="form" action="{{ url('admin/user') }}" method="post">
           {{ csrf_field() }}
 
           <div class="form-group">

@@ -24,6 +24,23 @@ class AdminController extends Controller
     return view('admin.index', compact(['services', 'menuitems', 'posts', 'users']));
   }
 
+  public function createUser(User $user, Request $request)
+  {
+    $this->validate($request, [
+      'name' => 'required|string',
+      'email' => 'required|string|email|unique:users',
+      'password' => 'required|string|min:6|confirmed'
+    ]);
+
+    User::create([
+      'name' => $request->name,
+      'email' => $request->email,
+      'password' => bcrypt($request->password)
+    ]);
+
+    return redirect('admin');
+  }
+
   public function deleteUser(User $user)
   {
     $user->destroy();

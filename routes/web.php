@@ -19,6 +19,7 @@ Route::post('/contact', 'SiteController@contactFormPost');
 
 Route::get('/admin', 'AdminController@index');
 Route::delete('/user/{id}', 'AdminController@deleteUser')->middleware('admin');
+Route::post('/admin/user', 'AdminController@createUser')->middleware('admin');
 
 Route::resource('services', 'ServicesController');
 Route::resource('menu', 'MenuItemsController');
