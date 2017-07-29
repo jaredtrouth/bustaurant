@@ -36,6 +36,7 @@ class AdminController extends Controller
         User::create([
       'name' => $request->name,
       'email' => $request->email,
+      'admin' => $request->has('admin'),
       'password' => bcrypt($request->password)
     ]);
 
