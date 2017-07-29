@@ -19,7 +19,9 @@
           <li role="presentation" class="active"><a href="#schedule" aria-controls="schedule" role="tab" data-toggle="tab">Schedule</a></li>
           <li role="presentation"><a href="#menu" aria-controls="menu" role="tab" data-toggle="tab">Menu</a></li>
           <li role="presentation"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">News</a></li>
-          <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
+          @if (Auth::user()->admin)
+            <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Users</a></li>
+          @endif
         </ul>
       </nav>
 
@@ -30,8 +32,10 @@
       @include('admin.partials.menu')
       {{-- News tab pane --}}
       @include('admin.partials.news')
-      {{-- Users tab pane --}}
-      @include('admin.partials.users')
+      @if (Auth::user()->admin)
+        {{-- Users tab pane --}}
+        @include('admin.partials.users')
+      @endif
     </div>
 
   </div>
