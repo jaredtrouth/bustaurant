@@ -1,6 +1,15 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple|Raleway');
 
+@font-face {
+    font-family: 'chawpregular';
+    src: url('/fonts/chawp-webfont.woff2') format('woff2'),
+         url('/fonts/chawp-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 // Variables
 @import "variables";
 

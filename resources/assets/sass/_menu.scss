@@ -1,15 +1,15 @@
 .menu-board {
-  background: url('../img/chalkboard-bg.jpg') center center no-repeat;
-  -webkit-background-size: 100% 500px;
-  -moz-background-size: 100% 500px;
-  background-size: auto 500px;
+  background: url('../img/blackboard.jpg') center center repeat;
+  -webkit-background-size: auto;
+  -moz-background-size: auto;
+  background-size: auto;
   height: 500px;
-  width: 670px;
+  width: 100%;
   margin: 0 auto;
   overflow: scroll;
-  padding: 40px;
+  padding: 0 1rem;
   font-size: 2.25rem;
-  font-family: 'Homemade Apple', cursive;
+  font-family: 'chawpregular', cursive;
   color: #fff;
 }
 
@@ -25,6 +25,8 @@
 .menu-board ul {
   list-style: none;
   padding-left: 0;
+  max-width: 600px;
+  margin: auto;
 }
 
 .menu-board ul li {

@@ -4,6 +4,15 @@
 
 @section('content')
   <div class="container" id="admin">
+    @if ($errors->any())
+      <div class="col-xs-12 alert alert-danger">
+        <ul>
+          @foreach ($errors as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
 
       <nav id="admin-sidebar">
         <ul class="nav nav-tabs" role="tablist" id="admin-tabs">
