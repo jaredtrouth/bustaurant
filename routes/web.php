@@ -19,7 +19,8 @@ Route::post('/contact', 'SiteController@contactFormPost');
 
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/user/{user}', 'AdminController@editUser')->middleware('admin');
-Route::delete('/user/{user}', 'AdminController@deleteUser')->middleware('admin');
+Route::match(['put','patch'], '/admin/user/{id}', 'AdminController@updateUser')->middleware('admin');
+Route::delete('/user/{id}', 'AdminController@deleteUser')->middleware('admin');
 Route::post('/admin/user', 'AdminController@createUser')->middleware('admin');
 
 Route::resource('services', 'ServicesController');

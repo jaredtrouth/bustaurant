@@ -1,35 +1,41 @@
 <div role="tabpanel" class="tab-pane" id="users">
-  <h2 class="text-center">Users <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#userForm"><i class="glyphicon glyphicon-plus"></i></button></a></h2>
+  <h2 class="text-center">Users <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#createUserForm"><i class="glyphicon glyphicon-plus"></i></button></a></h2>
 
   <table class="table table-hover">
     <thead>
       <th>Name</th>
       <th>Email</th>
+      <th>Admin</th>
       <th>Created</th>
       <th>Modified</th>
-      <th>Actions</th>
+      @if (Auth::user()->admin)
+        <th></th>
+        <th></th>
+      @endif
     </thead>
     <tbody>
       @foreach ($users as $user)
         <tr>
           <td>{{ $user->name }}</a></td>
           <td>{{ $user->email }}</td>
+          <td><span class="glyphicon {{$user->admin ? 'glyphicon-check' : 'glyphicon-unchecked'}}"></span></td>
           <td>{{ $user->created_at->diffForHumans() }}</td>
           <td>{{ $user->updated_at->diffForHumans() }}</td>
-          <td>
-            <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#userForm">
-              Edit
-            </button>
-            <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#">
-              Reset Password
-            </button>
-            <form method="post" action="{{ url('user', $user->id) }}">
-              {{ csrf_field() }} {{ method_field('DELETE') }}
-            <button type="submit" class="btn btn-sm btn-danger record-delete">
-              Delete
-            </button>
-            </form>
-          </td>
+          @if (Auth::user()->admin)
+            <td>
+              <a class="btn btn-sm btn-default" href="{{ url('admin/user', $user->id) }}">
+                Edit
+              </a>
+            </td>
+            <td>
+              <form method="post" action="{{ url('user', $user->id) }}">
+                {{ csrf_field() }} {{ method_field('DELETE') }}
+              <button type="submit" class="btn btn-sm btn-danger record-delete">
+                Delete
+              </button>
+              </form>
+            </td>
+          @endif
         </tr>
       @endforeach
     </tbody>
@@ -37,7 +43,7 @@
 
 </div>
 
-<div class="modal fade" id="userForm" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div class="modal fade" id="createUserForm" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

@@ -29,7 +29,8 @@ class AdminController extends Controller
         $this->validate($request, [
       'name' => 'required|string',
       'email' => 'required|string|email|unique:users',
-      'password' => 'required|string|min:6|confirmed'
+      'password' => 'required|string|min:6|confirmed',
+      'admin' => ''
     ]);
 
         User::create([
@@ -44,6 +45,25 @@ class AdminController extends Controller
     public function editUser(User $user)
     {
         return view('admin.editUser', compact(['user']));
+    }
+
+    public function updateUser($id, Request $request)
+    {
+        $user = User::find($id);
+
+        $this->validate($request, [
+        'name' => 'required|string',
+        'email' => 'required|string|email|unique:users,email,'.$user->id.',id',
+        'admin' => ''
+      ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->admin = $request->has('admin');
+
+        $user->save();
+
+        return redirect('admin');
     }
 
     public function deleteUser(User $user)
